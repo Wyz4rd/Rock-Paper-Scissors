@@ -1,0 +1,6 @@
+take user input in a prompt window
+prompt window will ask for either paper, scissors, rock from user
+console will choose either paper, scissors, rock
+5 rounds will be played per match
+each round will tally a score for the player
+console will display if victorious or not
