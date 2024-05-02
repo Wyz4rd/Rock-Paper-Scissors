@@ -1,4 +1,5 @@
 // declare player score variables
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -8,61 +9,92 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3 + 1);
     // console.log(computerChoice)
     if (computerChoice === 1) {
-        computerChoice = 2;
+        computerChoice = 3;
         console.log("computer chose scissors")
     } else if (computerChoice === 3) {
-        computerChoice = -1;
+        computerChoice = 1;
         console.log("computer chose rock")
     } else if (computerChoice === 2){
-        computerChoice = 0.5;
+        computerChoice = 2;
         console.log("computer chose paper")
     }
-    console.log(computerChoice);
     return computerChoice;
 }
-
 
 //get user input and return it as a number
 
 function getHumanChoice() {
-    let userInput = prompt("choose").toLowerCase()
+    let userInput = prompt("choose rock, paper or scissors").toLowerCase()
 
     if (userInput === "rock"){
         console.log("you chose rock")
-        userInput = -1;
+        userInput = 1;
     } else if (userInput === "paper"){
         console.log("you chose paper")
-        userInput = 0.5;
+        userInput = 2;
     } else if (userInput === "scissors"){
         console.log("you chose scissors")
-        userInput = 2;
+        userInput = 3;
+    } else {
+        throw new Error(alert("Game over, please refresh page to start again"))
     }
-    getHumanChoice = userInput;
-    // console.log(userInput)
     return userInput;
 }
 
 
 
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 //compare results to give a score
-function playRound(humanChoice, computerChoice){
-    if (humanChoice === computerChoice){
+
+//   Rock = 1
+//   Paper = 2
+//   scissors = 3
+
+function playRound(userInput, computerChoice){
+    if (userInput === computerChoice){
         console.log("Tied!")
-    } else if (humanChoice /= computerChoice){
-        if (humanChoice < computerChoice){
-            console.log("you lose this round")
-        } else if (humanChoice > computerChoice)
-            console.log("you win this round")
-        
-    } else {
-        // console.log("You lose this round")
-    }
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 3 && userInput === 1){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 3 && userInput === 2){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 1 && userInput === 2){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 1 && userInput === 3){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 2 && userInput === 1){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === 2 && userInput === 3){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } 
 }
 
-playRound(humanSelection, computerSelection);
 
 
+function playGame(){
+    for (let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection)
+    }
+}
+playGame()
+if (humanScore > computerScore) {
+    console.log("You win!")
+} else if (humanScore < computerScore){
+    console.log("You lose!")
+} 
+else {
+    console.log("Its a draw! Please refresh the page to start again.")
+}
