@@ -2,6 +2,10 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let buttonRock = document.querySelector(".buttonRock")
+// buttonRock.addEventListener('click', function(){
+//     playGame
+// })
 
 // use a function to get a random number from the computer and return it
 
@@ -98,3 +102,4 @@ if (humanScore > computerScore) {
 else {
     console.log("Its a draw! Please refresh the page to start again.")
 }
+

@@ -4,3 +4,9 @@ console will choose either paper, scissors, rock
 5 rounds will be played per match
 each round will tally a score for the player
 console will display if victorious or not
+
+
+Create UI for RPS
+make the buttons interactive with the playGame function
+connect the rps buttons with querySelectors
+make the output of each round appear in the div with id "text-box"
