@@ -1,3 +1,7 @@
+html{
+    height: 100vh;
+}
+
 div {
     display: flex;
     flex: auto;
@@ -103,20 +107,3 @@ body {
     color: white;
 }
 
-/* #computerText {
-    margin: auto;
-    width: 300px;
-    text-align: center;
-}
-
-#humanScore {
-    margin: auto;
-    width: 300px;
-    text-align: center;
-}
-
-#computerScore {
-    margin: auto;
-    width: 300px;
-    text-align: center;
-} */
