@@ -34,8 +34,8 @@ img {
     width: 100%;
 }
 
-.rps {
-    height: 400px;
+#rps {
+    height: 200px;
     width: 600px;
     display: block;
     margin-left: auto;
@@ -55,13 +55,18 @@ h1 {
     border-radius: 5px;
 }
 
-#text-box {
+#textBox {
     border: 2px solid gray;
-    width: 500px;
+    /* display: flex; */
+    /* justify-content: stretch; */
+    /* flex: 1; */
+    width: 700px;
+    height: 80px;
     margin: auto;
-    background-color: rgba(100, 89, 89, 0.2);
+    background-color: rgba(100, 89, 89, 0.6);
     border-radius: 5px;
     font-size: 1.7rem;
+    color:rgb(238, 238, 240);
 }
 
 body {
@@ -69,7 +74,26 @@ body {
     background-repeat:no-repeat;
 }
 
-.rps {
-    width: 600px;
-    height: 200px;
+#start {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(225, 153, 52, 0.6);
+}
+
+#text {
+    margin: auto;
+    width: 300px;
+    text-align: center;
+}
+
+#computerText {
+    margin: auto;
+    width: 300px;
+    text-align: center;
 }

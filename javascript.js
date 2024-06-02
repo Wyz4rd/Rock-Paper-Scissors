@@ -2,49 +2,64 @@
 
 let humanScore = 0;
 let computerScore = 0;
-let buttonRock = document.querySelector(".buttonRock")
-// buttonRock.addEventListener('click', function(){
-//     playGame
-// })
+let userInput = "";
+let computerChoice = "";
+
+const buttonRock = document.getElementById("buttonRock");
+const buttonPaper = document.getElementById("buttonPaper");
+const buttonScissors = document.getElementById("buttonScissors");
+const buttons = document.getElementById('buttons')
+const text = document.getElementById("text");
+const rps = document.getElementById('rps');
+const computerText = document.getElementById('computerText');
+const startButton = document.getElementById('start')
+
+
+
+buttonRock.addEventListener('click', function(){
+    document.getElementById('text').innerHTML = "You chose Rock!";
+    computerChoice = getComputerChoice();
+    document.getElementById('computerText').innerHTML =  "Computer chose: " + computerChoice;
+    userInput = "Rock";
+    playRound()
+    gameScore()
+});
+
+buttonPaper.addEventListener('click', function(){
+    document.getElementById('text').innerHTML = "You chose Paper!";
+    computerChoice = getComputerChoice();
+    document.getElementById('computerText').innerHTML =  "Computer chose: " + computerChoice;
+    userInput = "Paper";
+    playRound()
+    gameScore()
+
+});
+
+buttonScissors.addEventListener('click', function(){
+    document.getElementById('text').innerHTML = "You chose Scissors!";
+    computerChoice = getComputerChoice();
+    document.getElementById('computerText').innerHTML =  "Computer chose: " + computerChoice;
+    userInput = "Scissors";
+    gameScore()
+    playRound()
+   
+});
+
+
 
 // use a function to get a random number from the computer and return it
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3 + 1);
-    // console.log(computerChoice)
     if (computerChoice === 1) {
-        computerChoice = 3;
-        console.log("computer chose scissors")
+        computerChoice = "Rock";
     } else if (computerChoice === 3) {
-        computerChoice = 1;
-        console.log("computer chose rock")
+        computerChoice = "Scissors";
     } else if (computerChoice === 2){
-        computerChoice = 2;
-        console.log("computer chose paper")
+        computerChoice = "Paper";
     }
     return computerChoice;
 }
-
-//get user input and return it as a number
-
-function getHumanChoice() {
-    let userInput = prompt("choose rock, paper or scissors").toLowerCase()
-
-    if (userInput === "rock"){
-        console.log("you chose rock")
-        userInput = 1;
-    } else if (userInput === "paper"){
-        console.log("you chose paper")
-        userInput = 2;
-    } else if (userInput === "scissors"){
-        console.log("you chose scissors")
-        userInput = 3;
-    } else {
-        throw new Error(alert("Game over, please refresh page to start again"))
-    }
-    return userInput;
-}
-
 
 
 //compare results to give a score
@@ -53,53 +68,69 @@ function getHumanChoice() {
 //   Paper = 2
 //   scissors = 3
 
-function playRound(userInput, computerChoice){
-    if (userInput === computerChoice){
+function playRound(){
+    
+     if (computerChoice === "Scissors" && userInput === "Rock"){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    } else if (computerChoice === "Scissors" && userInput === "Paper"){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    } else if (computerChoice === "Rock" && userInput === "Paper"){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+    } else if (computerChoice === "Rock" && userInput === "Scissors"){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    } else if (computerChoice === "Paper" && userInput === "Rock"){
+        computerScore++;
+        console.log("you lose this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    } else if (computerChoice === "Paper" && userInput === "Scissors"){
+        humanScore++;
+        console.log("you win this round")
+        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    } else if (userInput === computerChoice){
         console.log("Tied!")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 3 && userInput === 1){
-        humanScore++;
-        console.log("you win this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 3 && userInput === 2){
-        computerScore++;
-        console.log("you lose this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 1 && userInput === 2){
-        humanScore++;
-        console.log("you win this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 1 && userInput === 3){
-        computerScore++;
-        console.log("you lose this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 2 && userInput === 1){
-        computerScore++;
-        console.log("you lose this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
-    } else if (computerChoice === 2 && userInput === 3){
-        humanScore++;
-        console.log("you win this round")
-        console.log("Player score is " + humanScore + " Computer score is " + computerScore)
+        document.getElementById('text').innerHTML = "Player score is " + humanScore
+        document.getElementById('computerText').innerHTML = "Computer score is " + computerScore;
+    }
+    }
+
+
+let gameScore = function(){
+    if (humanScore === 4){
+        console.log("You win, Congratulations")
+        document.getElementById('buttons').innerHTML = 
+        "<div id='textBox'><span style='font-size:60px'>You win, Congratulations</span></div>";
+    } else if (computerScore === 4){
+        console.log("computer wins")
+        document.getElementById('buttons').innerHTML = 
+        "<div id='textBox'><span style='font-size:60px'>Computer wins, try again!</span></div>";
+    } 
+    else if (humanScore || computerScore < 4){
+    console.log("play again")
     } 
 }
 
+const restartBtn = document.getElementById("restart");
 
-
-function playGame(){
-    for (let i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection)
-    }
-}
-playGame()
-if (humanScore > computerScore) {
-    console.log("You win!")
-} else if (humanScore < computerScore){
-    console.log("You lose!")
-} 
-else {
-    console.log("Its a draw! Please refresh the page to start again.")
+function handleClick() {
+  window.location.reload();
 }
 
+restartBtn.addEventListener("click", handleClick);
