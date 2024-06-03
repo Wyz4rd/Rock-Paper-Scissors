@@ -5,8 +5,8 @@ html, body {
 
 body {
     background-image: url(images/back.jpeg);
-    background-repeat:no-repeat;
     padding: 0;
+    background-color: bisque;
 }
 
 div {
