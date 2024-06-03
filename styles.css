@@ -10,6 +10,7 @@ div {
 #buttons {
     padding: 10px;
     display: flex;
+    flex: a;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -39,7 +40,7 @@ img {
 
 #rps {
     height: 200px;
-    width: 600px;
+    width: 800px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -47,17 +48,15 @@ img {
 
 h1 {
     text-align: center;
-    text-decoration: dotted;
-    text-shadow: violet;
     font-size: 100px;
     font-weight: bold;
     font-family:'Times New Roman', Times, serif;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    max-width: 900px;
-    background-color: rgba(100, 89, 89, 0.2);
-    border-radius: 5px;
+    margin: 0px;
+    padding: 15px;
+    padding-top: 5px;
+    width: 100%;
+    background-color: rgb(115, 66, 23);
+    color: blanchedalmond;
 }
 
 #textBox {
@@ -66,27 +65,17 @@ h1 {
     height: 80px;
     margin: auto;
     margin-top: 10px;
-    background-color: rgba(100, 89, 89, 0.6);
+    background-color: rgba(115, 66, 23, 0.6);
     border-radius: 5px;
     font-size: 1.7rem;
-    color:rgb(238, 238, 240);
+    color: blanchedalmond;
 }
 
 body {
     background-image: url(images/back.jpeg);
     background-repeat:no-repeat;
-}
-
-#start {
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 100px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(225, 153, 52, 0.6);
+    padding: 0;
+    margin: 0;
 }
 
 #text, #computerText, #humanScore, #computerScore {
@@ -101,7 +90,8 @@ body {
     padding: 10px;
     display: flex;
     justify-content: center;
-    background-color: rgba(100, 89, 89, 0.6);
-    color: white;
+    background-color: rgba(115, 66, 23, 0.6);
+    color: blanchedalmond;
+    border-radius: 5px;
 }
 
